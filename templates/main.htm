@@ -1,0 +1,49 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<!-- <link rel="stylesheet" type="text/css" href="styles.css">	 -->
+</head>
+<form action="../external/" method="POST">
+    {% csrf_token %}
+	
+    <script type="text/javascript">
+        function disableButton(button) {
+        button.disabled = true;
+        button.value = "로그인중..."
+        button.form.submit();
+		}
+    </script>
+	
+	<div class="placeholder" >
+		<div>
+		  <p class="copyright">COPYRIGHT ⓒHYESEUNG 2020 ALL RIGHTS RESERVED Alpha.ver.</p>
+		  <h1 class="title">ECS 프로젝트, <br> Alpha ver. <p class="blinking-cursor">|</p> </h1>
+			<div class="wrapper">
+				<div class="input">
+					<div class="group">      
+      					<input type="number" name="id" required>
+      					<span class="highlight"></span>
+      					<span class="bar"></span>
+      					<label>학번</label>
+    				</div>
+					
+					<div class="group">      
+      					<input type="password" name="password" required>
+      					<span class="highlight"></span>
+      					<span class="bar"></span>
+      					<label>청운 네트워크 비밀번호</label>
+    				</div>
+				</div>
+				<div class="submit">
+    				<input class="button-offset" type="submit" value="로그인" onclick="disableButton(this)">
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+</html>	

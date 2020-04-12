@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<title>Login Succes</title>
+<link rel="stylesheet" type="text/css" href="{% static 'styles2.css' %}">
+<!-- <link rel="stylesheet" type="text/css" href="styles2.css"> -->
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">	
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">	
+</head>
+<body>
+	<div class="wrapper">
+		<div class="left">
+			<div class="left_wrapper">
+			<div class="logo">
+				<h1>ECS Project,</h1>
+				<h2 class="rainbow-text">Alpha ver.</h2>&nbsp;
+			</div>
+			<div class="info">
+				<p>{{Id}} {{Name}}</p>
+			</div>
+			<div class="subjecttable">
+				<ul>
+					<li>아래 과목명을 누르면 화상수업으로 이동합니다</li>
+					<li><a href= '{{firsturl}}' target="_blank">1교시 {{firstPeriod}}</a></li>
+					<li><a href= '{{secondurl}}' target="_blank">2교시 {{secondPeriod}}</a></li>
+					<li><a href= '{{thirdurl}}' target="_blank">3교시 {{thirdPeriod}}</a></li>
+					<li><a href= '{{fourthurl}}' target="_blank">4교시 {{fourthPeriod}}</a></li>
+					<li><a href= '{{fifthurl}}' target="_blank">5교시 {{fifthPeriod}}</a></li>
+					<li><a href= '{{sixthurl}}' target="_blank">6교시 {{sixthPeriod}}</a></li>
+					<li><a href= '{{seventhurl}}' target="_blank">7교시 {{seventhPeriod}}</a></li>
+					<li><a href= '{{eighthurl}}' target="_blank">8교시 {{eighthPeriod}}</a></li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		<div class="right">
+			<div class="timeTable">
+				<p class="help">게시글의 제목을 클릭하면 구글클래스로 바로 이동합니다</p>	
+			{% for a in posts%}
+				<div class="content card-2">
+					<div class="postTitle" onclick="location.href='{{a.postUrl}}'" style="cursor: pointer;"><h3>{{a.postTitle}}</h3></div>
+					<div class="postWriter"> {{a.postWriter}}</div>
+					<div class="postDate">{{a.postDate}}<br></div>
+					<div class="postContent" style="line-height: 2;">{{a.postContent | linebreaksbr}}</div>
+				</div>
+			{% endfor%} 
+			</div>
+		</div>		
+	</div>
+	<div style="clear: both"></div>
+	<footer>&nbsp;</footer>
+</body>
+</html>
