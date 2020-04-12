@@ -29,11 +29,12 @@ def get_data(target,id,password):
 def parse_site(id, password):
     try: # html 긁어오기
         options = webdriver.ChromeOptions()
+        options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
         options.add_argument('headless')
         options.add_argument('window-size=1920x1080')
         options.add_argument("disable-gpu")
 
-        driver = webdriver.Chrome('C:\Projects\ECS\chromedriver', chrome_options=options)
+        driver = webdriver.Chrome(executable_path=str(os.environ.get('CHROMEDRIVER_PATH')), chrome_options=options)
         driver.implicitly_wait(3)
         driver.get('http://www.hcuhs.kr')
 
