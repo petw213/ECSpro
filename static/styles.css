@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+	background-image: url("BG9.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  font-family: 'Gothic A1', sans-serif;
+  background-color: #010207;
+
+}
+
+.blinking-cursor {
+	display: inline;
+  font-weight: 100;
+  color: white;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+.button-offset {
+	width: 14vw;
+	height: 70px;
+	margin-top: 20px;
+  text-decoration: none;
+  padding: 5px 10px;
+  background: transparent;
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: white;
+  transition: .3s;
+  box-shadow: 
+    0.3em 0.3em 0 0 white, 
+    inset 0.3em 0.3em 0 0 white;
+}
+
+.button-offset:hover,
+.button-offset:focus {
+  box-shadow: 
+    0 0 0 0 white, 
+    inset 6em 3.5em 0 0 white;
+  color: #94B0BE;
+  border: 5px solid white;
+}
+
+
+.copyright {
+	font-size: 1vw;
+	color: grey;
+	margin: 0;
+}
+
+.placeholder {
+	margin: 11vw 6vw;
+}
+
+.about {
+	margin: 20px 20px 0px;
+	color: white;
+	float: right;
+	font-size: 20px;
+}
+
+.title {
+	font-size: 5vw;
+	margin-top: 10px;
+	color: white;
+}
+
+.wrapper {
+	display: inline;
+}
+
+.input {
+	float: left;
+	margin-right: 5vw;
+}
+
+.submit {
+	padding-top: 20px;
+}
+
+.group 			  { 
+  position:relative; 
+  margin-bottom:35px; 
+}
+input 				{
+	background-color: transparent;
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+	color: white;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:white; 
+  font-size:1.1vw;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:white;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:white; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+
+#elementToMove{
+  -webkit-transition: left 1s ease;
+  transition: left 1s ease;
+}
+
+@media screen and (max-width: 768px){
+	.placeholder{
+		margin: 200px 50px;
+	}
+	.title {
+		font-size: 60px;
+	}
+	input {
+	}
+	.button-offset {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 420px){
+	.title{
+		font-size: 30px;
+	}
+	.placeholder {
+		margin: 20vw 1vw;
+	}
+	.submit {
+		float: right;
+	}
+	.button-offset {
+		font-size: 10px;
+		width: 100px;
+		margin-top: 0;
+		height: 50px;
+	}
+	.submit {
+		padding: 0;
+	}
+	.copyright {
+		font-size: 5px;
+	}
+	.input{
+		margin-top: 20px
+	}
+}

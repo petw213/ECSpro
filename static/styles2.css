@@ -1,0 +1,313 @@
+@charset "utf-8";
+/* CSS Document */
+ 
+html{
+	background-color: black;
+	color: white;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	background-color: #F2F2F2;
+	font-family: 'Gothic A1', sans-serif;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+nav {
+	position: relative;
+	padding: 10px 2vw 0 10px;
+	color: black;
+	font-size: 1.5em;
+}
+
+.about{
+	display: block;
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: 100;
+	text-decoration: none;
+	color: white;
+	float: right;
+	font-size: 1.8vw;
+}
+#clock{
+	font-family: 'Do Hyeon', sans-serif;
+	font-weight: 100;
+	text-decoration: none;
+	color: white;
+	float: left;
+	font-size: 1.8vw;
+}
+.left{
+	background-color: #010207;
+	top: 0;
+	position: fixed;
+	display: block;
+	float: left;
+	width: 20%;
+	height: 100%;
+}
+.right{
+	width: 80%;
+	float: right;
+	background-color: #F2F2F2;
+	height: 100%;
+}
+content{
+	display: inline-block;
+}
+footer{
+	margin: 0 20px;
+}
+.logo{
+	padding: 10px;
+	border-bottom: 1px #414141 solid;
+}
+.wrapper {
+	height: 100%;
+	width: 100%;
+}
+.left_wrapper{
+	margin: 10px 10px;
+}
+h1{
+	margin: 0;
+	font-size: 40px;
+}
+h2{
+	margin: 0;
+}
+.info {
+	color: #595959;
+	padding: 10px;
+	border-bottom: 1px #414141 solid;
+}
+.subjecttable ul {
+	list-style: none;
+	padding: 0;
+}
+.subjecttable ul li {
+	margin-top: 20px;
+}
+a {
+	text-decoration: none;
+	color: #AAAAAA;
+	transition: all 0.2s;
+}
+
+a:hover{
+	font-size: 20px;
+	color: white;
+}
+
+.subjecttable {
+	border-bottom: 1px #414141 solid;
+	padding-bottom: 10px;
+}
+
+.rainbow-text {
+  /* Create a conic gradient. */
+  /* Double percentages to avoid blur (#000 10%, #fff 10%, #fff 20%, ...). */
+  background: #CA4246;
+  background-color: #CA4246;
+  background: conic-gradient(
+    #CA4246 16.666%, 
+    #E16541 16.666%, 
+    #E16541 33.333%, 
+    #F18F43 33.333%, 
+    #F18F43 50%, 
+    #8B9862 50%, 
+    #8B9862 66.666%, 
+    #476098 66.666%, 
+    #476098 83.333%, 
+    #A7489B 83.333%);
+  
+  /* Set thee background size and repeat properties. */
+  background-size: 57%;
+  background-repeat: repeat;
+  
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  animation: rainbow-text-animation-rev 0.5s ease forwards;
+}
+
+/* Add animation on hover. */
+.rainbow-text:hover {
+  animation: rainbow-text-animation 0.5s ease forwards;
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-animation {
+  0% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-animation-rev {
+  0% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+}
+
+
+.timeTable {
+	position: static;
+	margin: 1vw;
+	width: auto;
+	padding-top: 1vw;
+}
+
+.tableleft {
+	margin: auto;
+	float: left;
+	width: 80%;
+	height: 90%;
+	background-color: red;
+}
+
+.tableright {
+	float: right;
+	background-color: blue;
+	width: 40%;
+	height: 90%;
+}
+
+
+.subjecttable ul {
+	margin: 10px;
+}
+
+.postTitle {
+	height: 10%;
+	color: #131313;
+	transition: all 0.2s;
+}
+
+.postTitle:hover {
+	text-decoration: underline;
+	color: #AAAAAA;
+}
+
+.postDate {
+	height: auto;
+	margin-top: 10px;
+	color : #AAAAAA;
+}
+
+.postWriter{
+	height: 10%;
+	color: #AAAAAA;
+}
+
+.postContent {
+	height: 70%;
+	padding-top: 1vw;
+}
+
+.help{
+	display: block;
+	width: 100%;
+	padding-left: 6.5vw;
+	color: #131313;
+}
+
+.content {
+	background-color: white;
+	width: 80%;
+	height: auto;
+	margin: 2vw auto;
+	color: #131313;
+	padding: 1vw;
+	border-radius: 10px;
+}
+
+
+.postWriter {
+	height: 10%;
+}
+
+h3{
+	border-bottom: #AAAAAA 1px solid;
+	padding-bottom: 1vw;
+}
+
+.name {
+	position: relative;
+	
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+@media (max-width: 768px){
+	.postTitle{
+		font-size: 1.4vw;
+	}
+	.postContent{
+		line-height: 1;
+		font-size: 1.5vw;
+	}
+	.postWriter{
+		font-size: 1.5vw;
+	}
+	.postDate{
+		font-size: 1.5vw;
+	}
+	li {
+		font-size:1.5vw;
+	}
+	h1{
+		font-size: 4vw;
+	}
+	.info p{
+		font-size: 1.5vw;
+	}
+}
+
+@media (max-width: 420px){
+	h2{
+		font-size: 3vw;
+	}
+	.logo{
+		padding: 0;
+	}
+	.info p{
+		margin: 0;
+	}
+	.help{
+		font-size: 1.5vw;
+	}
+}
