@@ -87,7 +87,7 @@ def get_class_data():
         options.add_argument("disable-gpu")
         
 
-        driver = webdriver.Chrome(executable_path=str(os.environ.get('CHROMEDRIVER_PATH')), chrome_options=options)
+        driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=options)
         driver.implicitly_wait(3)
         driver.get('https://accounts.google.com/signin/v2/identifier?service=classroom&passive=1209600&continue=https%3A%2F%2Fclassroom.google.com%2Fu%2F0%2Fh&followup=https%3A%2F%2Fclassroom.google.com%2Fu%2F0%2Fh&flowName=GlifWebSignIn&flowEntry=ServiceLogin')
         driver.find_element_by_xpath("//input[@id = 'Email']").send_keys('1920308@hcu.hs.kr')

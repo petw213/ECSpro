@@ -34,7 +34,7 @@ def parse_site(id, password):
         options.add_argument('window-size=1920x1080')
         options.add_argument("disable-gpu")
 
-        driver = webdriver.Chrome(executable_path=str(os.environ.get('CHROMEDRIVER_PATH')), chrome_options=options)
+        driver = webdriver.Chrome(executable_path=os.environ.get('CHROMEDRIVER_PATH'), chrome_options=options)
         driver.implicitly_wait(3)
         driver.get('http://www.hcuhs.kr')
 
