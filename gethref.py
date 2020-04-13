@@ -14,7 +14,7 @@ def get_url(target):
         '영미문학 읽기우일성(3-3)' : 'https://meet.google.com/iid-bupx-bxt',
         '독서와 문법김민정' : 'https://classroom.google.com/u/0/c/NTgwNDA5OTkwNTha',
         '운동과 건강고은성' : 'https://classroom.google.com/u/0/c/NTc1MDM5MzUwNDla',
-        '국어논술최인혁' : 'https://classroom.google.com/u/0/c/NTc1MDM5MzUwNDla',
+        '국어논술최인혁' : 'https://meet.google.com/izo-ipac-gym',
         '독서와 문법권영해' : 'https://classroom.google.com/u/0/c/Njc1MzM0ODcwMjda',
         '심화영어독해Ⅰ_나D노은란(3-6)' : 'https://classroom.google.com/c/NjU5ODY5MDc3NzFa',
         '운동과 건강임성규' : 'https://classroom.google.com/c/NTc1MDM5MzUwNDla',
