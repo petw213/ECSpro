@@ -23,7 +23,7 @@ def sub_view(request, *args, **kwargs):
         Student.objects.get(studentId = id,studentPassword = password)
         target = Student.objects.get(studentId = id,studentPassword = password)
         post = Post.objects.all().order_by('-postDate')
-        dt = datetime.now() - timedelta(days=2)
+        dt = datetime.now()
         weekday = dt.weekday()
         my_context = {
             'Id' : id,
