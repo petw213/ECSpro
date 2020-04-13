@@ -95,7 +95,6 @@ def get_class_data():
 
         driver.find_element_by_xpath("//input[@id='password']").send_keys('mood2301')
         driver.find_element_by_xpath("//input[@id = 'submit']").click()
-        driver.save_screenshot('sample_screenshot_1.png')
 
         for a in site_list:
             time.sleep(5)
