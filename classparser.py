@@ -103,7 +103,6 @@ def get_class_data():
             time.sleep(5)
             get_post_info(driver)
 
-        driver.save_screenshot('sample_screenshot_1.png')
         driver.close()
         driver.quit()
         return True
