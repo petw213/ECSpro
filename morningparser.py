@@ -82,6 +82,7 @@ def get_post_info(driver):
     return
 
 def get_class_data(): 
+    Post.objects.all().delete()
     try:
         options = webdriver.ChromeOptions()
         options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
