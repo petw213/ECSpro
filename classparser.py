@@ -39,7 +39,6 @@ def get_post_info(driver):
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     div = soup.findAll('div', {'class' : 'n4xnA'})
-    print(div)
     for post in div:
         temp = post.findAll('span',{'class' : 'PazDv'})
         title= temp[0].getText()        
@@ -50,6 +49,7 @@ def get_post_info(driver):
             write_date = write_date[0]+ '0' + write_date[1]
         else:
             write_date = ''.join(write_date)
+        pdb.set_trace()
         try:
             writer = post.find('span',{'class' : 'YVvGBb asQXV'}).getText()
             content = post.find('div',{'class' : 'pco8Kc obylVb'}).getText("\n")
