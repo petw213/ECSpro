@@ -49,7 +49,6 @@ def get_post_info(driver):
             write_date = write_date[0]+ '0' + write_date[1]
         else:
             write_date = ''.join(write_date)
-        pdb.set_trace()
         try:
             writer = post.find('span',{'class' : 'YVvGBb asQXV'}).getText()
             content = post.find('div',{'class' : 'pco8Kc obylVb'}).getText("\n")
