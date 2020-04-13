@@ -20,13 +20,14 @@ def get_url(target):
         '운동과 건강임성규' : 'https://classroom.google.com/c/NTc1MDM5MzUwNDla',
         '운동과 건강/무용2명' : 'https://classroom.google.com/c/NTc1MDM5MzUwNDla',
         '지구과학Ⅱ김지수(3-1)' : 'https://classroom.google.com/c/NTc1MTAzNTQ5ODFa',
-        '논리학A김강(3-7)' : '',
+        '논리학A김강(3-7)' : 'https://zoom.us/j/5054701384?pwd=MUdFRzdXTExPRTFEMHNtSkY2OXdWQT09',
         '물리학ⅡA구상우(3-4)' : 'https://classroom.google.com/c/NTUyNzc5NTM4NzJa',
         '심화수학Ⅰ_나D한철호(3-1,5,6)' : 'https://classroom.google.com/c/NjU5ODY5MDc3NzFa',
         '심화영어독해Ⅰ_가C이기영(3-5,6)' : 'https://classroom.google.com/c/NTY5MTM4NDI3MzNa',
         '심화수학Ⅰ_가C정태모(3-1,5,6)' : 'https://classroom.google.com/c/NjU5ODY5MDc3NzFa',
         '심화수학Ⅰ_나A한철호(3-1,5,6)' : 'https://classroom.google.com/c/NjU5ODY5MDc3NzFa',
         '고급물리학구상우(3-4)' : 'https://classroom.google.com/c/NTUyNzc5NTM4NzJa'
+        '생명과학ⅡB정현호(중강의실)' : 'https://band.us/n/a5a33eIcKeO4s'
     }
 
     if (str(target) in urldic):
