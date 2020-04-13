@@ -36,10 +36,11 @@ def get_post_info(driver):
     #     if new_height == last_height:
     #         break
     #     last_height = new_height
-    time.sleep(10)
+    time.sleep(20)
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     div = soup.findAll('div', {'class' : 'n4xnA'})
+    print(div)
     for post in div:
         temp = post.findAll('span',{'class' : 'PazDv'})
         title= temp[0].getText()        
@@ -101,7 +102,6 @@ def get_class_data():
             time.sleep(5)
             driver.get(a)
             time.sleep(5)
-            print(a)
             get_post_info(driver)
 
         driver.close()
