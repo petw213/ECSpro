@@ -25,6 +25,7 @@ site_list = ['https://classroom.google.com/u/0/c/NTc1MDM5MzUwNDla','https://clas
 ]
 
 
+
 def get_post_info(driver):
     #SCROLL_PAUSE_TIME = 1
     #
@@ -40,6 +41,7 @@ def get_post_info(driver):
     #     if new_height == last_height:
     #         break
     #     last_height = new_height
+    Post.objects.all().delete()
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     div = soup.findAll('div', {'class' : 'n4xnA'})
@@ -47,42 +49,45 @@ def get_post_info(driver):
         temp = post.findAll('span',{'class' : 'PazDv'})
         title= temp[0].getText()        
         write_date = temp[1].getText()
-        write_date = ''.join(re.findall("\d+",write_date))
+        # write_date = ''.join(re.findall("\d+",write_date))
 
-        if(len(write_date) == 2):
-            write_date = write_date[0]+ '0' + write_date[1]
+        # if(len(write_date) == 2):
+        #     write_date = write_date[0]+ '0' + write_date[1]
+        # else:
+        #     write_date = ''.join(write_date)
+
+        if(("오전" in write_date) or ("오후" in write_date)):
+            try:
+                writer = post.find('span',{'class' : 'YVvGBb asQXV'}).getText()
+                content = post.find('div',{'class' : 'pco8Kc obylVb'}).getText("\n")
+                
+                if(Post.objects.filter(postDate = write_date, postContent = content)):
+                    return
+                else:
+                    Post(
+                        postWriter = writer,
+                        postTitle = title,
+                        postDate = write_date,
+                        postContent = content,
+                        postUrl = driver.current_url
+                    ).save()
+            except:
+                content = post.find('div', {'class' : 'JZicYb QRiHXd'}).getText("\n")
+                if(Post.objects.filter(postDate = write_date, postContent = content)):
+                    return
+                else:
+                    Post(
+                        postWriter = writer,
+                        postTitle = title,
+                        postDate = write_date,
+                        postContent = content,
+                        postUrl = driver.current_url
+                    ).save()
         else:
-            write_date = ''.join(write_date)
-        try:
-            writer = post.find('span',{'class' : 'YVvGBb asQXV'}).getText()
-            content = post.find('div',{'class' : 'pco8Kc obylVb'}).getText("\n")
-            
-            if(Post.objects.filter(postDate = write_date, postContent = content)):
-                return
-            else:
-                Post(
-                    postWriter = writer,
-                    postTitle = title,
-                    postDate = write_date,
-                    postContent = content,
-                    postUrl = driver.current_url
-                ).save()
-        except:
-            content = post.find('div', {'class' : 'JZicYb QRiHXd'}).getText("\n")
-            if(Post.objects.filter(postDate = write_date, postContent = content)):
-                return
-            else:
-                Post(
-                    postWriter = writer,
-                    postTitle = title,
-                    postDate = write_date,
-                    postContent = content,
-                    postUrl = driver.current_url
-                ).save()
+            pass
     return
 
 def get_class_data(): 
-    Post.objects.all().delete()
     try:
         options = webdriver.ChromeOptions()
         options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
@@ -101,9 +106,9 @@ def get_class_data():
         driver.find_element_by_xpath("//input[@id = 'submit']").click()
 
         for a in site_list:
-            time.sleep(5)
+            time.sleep(2)
             driver.get(a)
-            time.sleep(5)
+            time.sleep(3)
             get_post_info(driver)
 
         driver.close()

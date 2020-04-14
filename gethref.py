@@ -16,7 +16,7 @@ def get_url(target):
         '운동과 건강고은성' : 'https://classroom.google.com/u/0/c/NTc1MDM5MzUwNDla',
         '국어논술최인혁' : 'https://meet.google.com/izo-ipac-gym',
         '독서와 문법권영해' : 'https://classroom.google.com/u/0/c/Njc1MzM0ODcwMjda',
-        '심화영어독해Ⅰ_나D노은란(3-6)' : 'https://classroom.google.com/c/NjU5ODY5MDc3NzFa',
+        '심화영어독해Ⅰ_나D노은란(3-6)' : 'https://classroom.google.com/c/NTYwNjc0Njc1NjZa',
         '운동과 건강임성규' : 'https://classroom.google.com/c/NTc1MDM5MzUwNDla',
         '운동과 건강/무용2명' : 'https://classroom.google.com/c/NTc1MDM5MzUwNDla',
         '지구과학Ⅱ김지수(3-1)' : 'https://classroom.google.com/c/NTc1MTAzNTQ5ODFa',
