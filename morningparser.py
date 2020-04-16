@@ -41,7 +41,6 @@ def get_post_info(driver):
     #     if new_height == last_height:
     #         break
     #     last_height = new_height
-    Post.objects.all().delete()
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     div = soup.findAll('div', {'class' : 'n4xnA'})
@@ -89,6 +88,7 @@ def get_post_info(driver):
 
 def get_class_data(): 
     try:
+        Post.objects.all().delete()
         options = webdriver.ChromeOptions()
         options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
         options.add_argument('--disable-dev-shm-usage')
