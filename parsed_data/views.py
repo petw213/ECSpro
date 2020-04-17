@@ -64,7 +64,8 @@ def sub_view(request, *args, **kwargs):
             dt = datetime.now()
             weekday = dt.weekday()
             if( weekday >= 5):
-                weekday = 4
+                weekday = 3
+
             my_context = {
                 'Id' : id,
                 'Name' : target.studentName,
