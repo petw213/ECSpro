@@ -25,6 +25,10 @@ def sub_view(request, *args, **kwargs):
         post = Post.objects.all().order_by('-postDate')
         dt = datetime.now()
         weekday = dt.weekday()
+        
+        if( weekday > 4):
+                weekday = 4
+        
         my_context = {
             'Id' : id,
             'Name' : target.studentName,
