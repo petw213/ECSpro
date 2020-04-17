@@ -65,7 +65,7 @@ def sub_view(request, *args, **kwargs):
             weekday = dt.weekday()
             
             if( weekday > 4):
-                weekday = 3
+                weekday = 4
 
             my_context = {
                 'Id' : id,
