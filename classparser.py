@@ -12,17 +12,20 @@ import django
 django.setup()
 from post.models import Post
 
-site_list = ['https://classroom.google.com/u/0/c/NTc1MDM5MzUwNDla','https://classroom.google.com/u/0/c/Njc1MzM0ODcwMjda',
-'https://classroom.google.com/u/0/c/NTY5MTM4NDI3MzNa', 'https://classroom.google.com/u/0/c/NTYwNjc0Njc1NjZa',
-'https://classroom.google.com/u/0/c/NjU5ODY5MDc3NzFa', 'https://classroom.google.com/u/0/c/NTgwNDA5OTkwNTha',
-'https://classroom.google.com/u/0/c/NjY4NTMyOTc1ODla', 'https://classroom.google.com/u/0/c/NTUyMzk0NjkxNzda',
-'https://classroom.google.com/u/0/c/NTU2OTIwNzMzMjZa', 'https://classroom.google.com/u/0/c/NTM2Njg3MjM3MDFa',
-'https://classroom.google.com/u/0/c/NTYxMDU1OTA3ODNa', 'https://classroom.google.com/u/0/c/NTMyNTYxOTkxNjBa',
-'https://classroom.google.com/u/0/c/NTc1MTAzNTQ5ODFa', 'https://classroom.google.com/u/0/c/NTU3MjE3MjQ0Mjla',
-'https://classroom.google.com/u/0/c/Njc2ODA1NjExNzZa', 'https://classroom.google.com/u/0/c/NjU5OTI3NTI5MTJa',
-'https://classroom.google.com/u/0/c/NTczNzE4MDkwNzVa', 'https://classroom.google.com/u/0/c/NTYwNjI2MjUyNzla',
-'https://classroom.google.com/u/0/c/NTY5Mzg1NzM2MzBa',
+
+site_list_main = ['https://classroom.google.com/c/NTMyNTYxOTkxNjBa','https://classroom.google.com/c/NTYxMDU1OTA3ODNa','https://classroom.google.com/c/NTM2Njg3MjM3MDFa',
+'https://classroom.google.com/c/NTU2OTIwNzMzMjZa', 'https://classroom.google.com/c/NjY5MDMyMzc5NjFa','https://classroom.google.com/c/NjY4NTMyOTc1ODla',
+'https://classroom.google.com/c/NTgwNDA5OTkwNTha', 'https://classroom.google.com/c/Njc1MzM0ODcwMjda', 'https://classroom.google.com/c/NTc1MDM5MzUwNDla',
 ]
+
+site_list_select=['https://classroom.google.com/c/NTYxMDEyMzIxNjRa', 'https://classroom.google.com/c/NTQ3Mzk5NTAxNjZa', 'https://classroom.google.com/c/NTE3MDM2MTAxMzRa',
+'https://classroom.google.com/c/NTQ3Mzk5NTAwOTFa', 'https://classroom.google.com/c/NTUyOTQ5NjQ5NjBa', 'https://classroom.google.com/c/NTczNjU4NjE0ODFa',
+'https://classroom.google.com/c/NTQwNDI0MTU1OTRa', 'https://classroom.google.com/c/NTUyMzk0NjkxNDNa', 'https://classroom.google.com/c/NTUyMzk0NjkxNTVa',
+'https://classroom.google.com/c/NTMyNTU2MjQ1ODZa', 'https://classroom.google.com/c/NTUyNjAxODE4MzFa', 'https://classroom.google.com/c/NTUyMzk0NjkxNjVa',
+'https://classroom.google.com/c/NjU5OTI3NTI5MTJa', 'https://classroom.google.com/c/Njc2ODA1NjExNzZa', 'https://classroom.google.com/c/NTYwNjI2MjUyNzla',
+'https://classroom.google.com/c/NTY5Mzg1NzM2MzBa', 'https://classroom.google.com/c/NTczNzE4MDkwNzVa', 'https://classroom.google.com/c/NTU3MjE3MjQ0Mjla',
+'https://classroom.google.com/c/NTY5MTM4NDI3MzNa', 'https://classroom.google.com/c/NTYwNjc0Njc1NjZa', 'https://classroom.google.com/c/NTc1MTAzNTQ5ODFa', 
+'https://classroom.google.com/c/NjU5ODY5MDc3NzFa', 'https://classroom.google.com/c/NTUyMzk0NjkxNzda' ]
 
 
 
@@ -48,12 +51,7 @@ def get_post_info(driver):
         temp = post.findAll('span',{'class' : 'PazDv'})
         title= temp[0].getText()        
         write_date = temp[1].getText()
-        # write_date = ''.join(re.findall("\d+",write_date))
-
-        # if(len(write_date) == 2):
-        #     write_date = write_date[0]+ '0' + write_date[1]
-        # else:
-        #     write_date = ''.join(write_date)
+        writeSubject = post.find('h1',{'class' : 'tNGpbb uTUgB YVvGBb'}).getText()
 
         if(("오전" in write_date) or ("오후" in write_date)):
             try:
@@ -69,6 +67,7 @@ def get_post_info(driver):
                         postDate = write_date,
                         postContent = content,
                         postUrl = driver.current_url
+                        postSubject = writeSubject
                     ).save()
             except:
                 content = post.find('div', {'class' : 'JZicYb QRiHXd'}).getText("\n")
@@ -81,6 +80,7 @@ def get_post_info(driver):
                         postDate = write_date,
                         postContent = content,
                         postUrl = driver.current_url
+                        postSubject = writeSubject
                     ).save()
         else:
             pass
@@ -104,7 +104,7 @@ def get_class_data():
         driver.find_element_by_xpath("//input[@id='password']").send_keys('mood2301')
         driver.find_element_by_xpath("//input[@id = 'submit']").click()
 
-        for a in site_list:
+        for a in site_list_main:
             time.sleep(2)
             driver.get(a)
             time.sleep(3)

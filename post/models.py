@@ -7,6 +7,7 @@ class Post(models.Model):
     postDate = models.TextField(null=True)
     postContent = models.TextField(null=True)
     postUrl = models.TextField(null=True)
+    postSubject = models.TextField(null=True)
 
     def __str__(self):
         return str(self.postTitle)
