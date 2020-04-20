@@ -54,7 +54,6 @@ def get_post_info(driver):
         temp = post.findAll('span',{'class' : 'PazDv'})
         title= temp[0].getText()        
         write_date = temp[1].getText()
-        writeSubject = post.find('h1',{'class' : 'tNGpbb uTUgB YVvGBb'}).getText()
 
         if((" " in write_date) or ("오후" in write_date)):
             try:
