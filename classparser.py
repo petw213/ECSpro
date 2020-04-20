@@ -66,7 +66,7 @@ def get_post_info(driver):
                         postTitle = title,
                         postDate = write_date,
                         postContent = content,
-                        postUrl = driver.current_url
+                        postUrl = driver.current_url,
                         postSubject = writeSubject
                     ).save()
             except:
@@ -79,7 +79,7 @@ def get_post_info(driver):
                         postTitle = title,
                         postDate = write_date,
                         postContent = content,
-                        postUrl = driver.current_url
+                        postUrl = driver.current_url,
                         postSubject = writeSubject
                     ).save()
         else:
