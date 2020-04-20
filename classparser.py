@@ -46,8 +46,9 @@ def get_post_info(driver):
     #     last_height = new_height
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
+    writeSubject = soup.find('h1',{'class' : 'tNGpbb uTUgB YVvGBb'}).getText()    
     div = soup.findAll('div', {'class' : 'n4xnA'})
-    writeSubject = div.find('h1',{'class' : 'tNGpbb uTUgB YVvGBb'}).getText()
+
     for post in div:
         temp = post.findAll('span',{'class' : 'PazDv'})
         title= temp[0].getText()        
