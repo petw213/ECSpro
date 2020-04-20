@@ -53,6 +53,7 @@
 			{% for a in posts%}
 				<div class="content card-2">
 					<div class="postTitle" onclick="location.href='{{a.postUrl}}'" style="cursor: pointer;"><h3>{{a.postTitle}}</h3></div>
+					<div class="postWriter"> {{a.postSubject}}</div>
 					<div class="postWriter"> {{a.postWriter}}</div>
 					<div class="postDate">{{a.postDate}}<br></div>
 					<div class="postContent" style="line-height: 2;">{{a.postContent | linebreaksbr}}</div>

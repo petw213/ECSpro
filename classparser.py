@@ -54,7 +54,7 @@ def get_post_info(driver):
         title= temp[0].getText()        
         write_date = temp[1].getText()
 
-        if((" " in write_date) or ("오후" in write_date)):
+        if(("오전" in write_date) or ("오후" in write_date)):
             try:
                 writer = post.find('span',{'class' : 'YVvGBb asQXV'}).getText()
                 content = post.find('div',{'class' : 'pco8Kc obylVb'}).getText("\n")
@@ -106,6 +106,12 @@ def get_class_data():
         driver.find_element_by_xpath("//input[@id = 'submit']").click()
 
         for a in site_list_main:
+            time.sleep(2)
+            driver.get(a)
+            time.sleep(3)
+            get_post_info(driver)
+
+        for b in site_list_select:
             time.sleep(2)
             driver.get(a)
             time.sleep(3)
