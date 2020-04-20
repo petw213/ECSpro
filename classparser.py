@@ -47,14 +47,14 @@ def get_post_info(driver):
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
     div = soup.findAll('div', {'class' : 'n4xnA'})
+    writeSubject = div.find('h1',{'class' : 'tNGpbb uTUgB YVvGBb'}).getText()
     for post in div:
         temp = post.findAll('span',{'class' : 'PazDv'})
         title= temp[0].getText()        
         write_date = temp[1].getText()
-        pdb.set_trace()
         writeSubject = post.find('h1',{'class' : 'tNGpbb uTUgB YVvGBb'}).getText()
 
-        if(("오전" in write_date) or ("오후" in write_date)):
+        if((" " in write_date) or ("오후" in write_date)):
             try:
                 writer = post.find('span',{'class' : 'YVvGBb asQXV'}).getText()
                 content = post.find('div',{'class' : 'pco8Kc obylVb'}).getText("\n")
