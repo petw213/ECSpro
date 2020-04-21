@@ -106,17 +106,19 @@ def get_class_data():
         driver.find_element_by_xpath("//input[@id='password']").send_keys('mood2301')
         driver.find_element_by_xpath("//input[@id = 'submit']").click()
 
+        for b in site_list_select:
+            time.sleep(2)
+            driver.get(b)
+            time.sleep(3)
+            get_post_info(driver)
+        
         for a in site_list_main:
             time.sleep(2)
             driver.get(a)
             time.sleep(3)
             get_post_info(driver)
 
-        for b in site_list_select:
-            time.sleep(2)
-            driver.get(a)
-            time.sleep(3)
-            get_post_info(driver)
+        
 
         driver.close()
         driver.quit()
